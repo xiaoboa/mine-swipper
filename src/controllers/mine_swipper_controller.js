@@ -8,14 +8,14 @@ export default class extends Controller {
 
     resetBoard() {
         this.flags  = 0
-        this.open_cells = 0
-        this.game_over  = false
-        this.board = this.load_board()
-        this.board = this.shuffle_board(this.board)
+        this.openCells = 0
+        this.gameOver  = false
+        this.board = this.loadBoard()
+        this.board = this.shuffleBoard(this.board)
         this.draw()
     }
 
-    load_board() {
+    loadBoard() {
         let counter = 0;
         return Array.from(new Array(this.width)).map(() => {
             return Array.from(new Array(this.height)).map(() => {
@@ -25,7 +25,7 @@ export default class extends Controller {
         })
     }
 
-    shuffle_board(arr) {
+    shuffleBoard(arr) {
         for (let i = this.width - 1; i > 0; i--) {
             for (let j = 0; j < this.height; j++) {
                 let ri = Math.floor(Math.random() * (i + 1));
@@ -116,7 +116,7 @@ export default class extends Controller {
     markCell(event) {
         event.preventDefault()
 
-        if (this.game_over) return
+        if (this.gameOver) return
 
         const [x, y] = event.target.dataset.pos.split(",").map(e => parseInt(e))
 
@@ -128,8 +128,8 @@ export default class extends Controller {
             this.flags--
         }
 
-        if (this.open_cells === this.width * this.height - this.bombs && this.bombs === this.flags) {
-            this.game_over = true;
+        if (this.openCells === this.width * this.height - this.bombs && this.bombs === this.flags) {
+            this.gameOver = true;
             setTimeout(()=> { alert("You won!!!"); }, 300);
         }
 
@@ -139,7 +139,7 @@ export default class extends Controller {
     openCell(event) {
         event.preventDefault()
 
-        if (this.game_over) return
+        if (this.gameOver) return
 
         const [x, y] = event.target.dataset.pos.split(",")
                                                .map(e => parseInt(e))
@@ -152,12 +152,12 @@ export default class extends Controller {
             )
 
             this.board[x][y].v = 'the-bomb'
-            this.game_over = true
+            this.gameOver = true
         } else if (this.board[x][y].v === 'unknown') {
             this.neigbors(x, y)
 
-            if (this.open_cells === this.width * this.height - this.bombs && this.bombs === this.flags) {
-                this.game_over = true;
+            if (this.openCells === this.width * this.height - this.bombs && this.bombs === this.flags) {
+                this.gameOver = true;
                 setTimeout(()=> { alert("You won!!!"); }, 300);
             }
         }
@@ -172,7 +172,7 @@ export default class extends Controller {
 
         let count = this.bombsAround(x, y)
         this.board[x][y].v = count
-        this.open_cells++
+        this.openCells++
         if (count === 0) {
             for (let i = x - 1; i <= x + 1; i++) {
                 for (let j = y - 1; j <= y + 1; j++) {
