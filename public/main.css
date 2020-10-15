@@ -1,0 +1,86 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.row {
+  margin-top: 0;
+  margin-bottom: 0;
+  clear: left;
+}
+
+.cell {
+  transition: background 0.4s;
+  border: 2px solid #555;
+  width: 30px;
+  height: 30px;
+  float: left;
+}
+
+.cell-unknown {
+  background: url(./pictures/unknown.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-0 {
+  background: url(./pictures/empty.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-1 {
+  background: url(./pictures/one.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-2 {
+  background: url(./pictures/two.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-3 {
+  background: url(./pictures/three.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-4 {
+  background: url(./pictures/four.jpg);
+  background-size: contain;
+}
+
+.cell-5 {
+  background: url(./pictures/five.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-6 {
+  background: url(./pictures/six.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-7 {
+  background: url(./pictures/seven.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-8 {
+  background: url(./pictures/eight.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-bombed {
+  background: url(./pictures/bombed.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-the-bomb {
+  background: url(./pictures/theBomb.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}
+
+.cell-flag {
+  background: url(./pictures/flag.jpg) no-repeat right bottom, left top;
+  background-size: contain;
+}

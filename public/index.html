@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css">
+  <script src="bundle.js" async></script>
+</head>
+<body>
+  <div class="container">
+
+    <div data-controller="mine-swipper">
+      <ul><ul><button data-action="mine-swipper#playAgain">Play Again</button></ul></ul>
+      <ul><ul>
+        <label for="width">width: </label>
+        <input type="number" name="width" value="10" data-action="mine-swipper#widthUpdated" data-target="mine-swipper.width">
+
+        <label for="height">height: </label>
+        <input type="number" name="height" value="10" data-action="mine-swipper#heightUpdated" data-target="mine-swipper.height">
+
+        <label for="bombs">bombs: </label>
+        <input type="number" name="bombs" value="10" data-action="mine-swipper#bombsUpdated" data-target="mine-swipper.bombs">
+      </ul></ul>
+
+      <div id="board">
+      Loading...
+      </div>
+    </div>
+  </div>
+</body>
+</html>
